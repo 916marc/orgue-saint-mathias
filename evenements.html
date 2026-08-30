@@ -10,20 +10,72 @@
         nav a { color: white; margin-left: 1rem; text-decoration: none; font-weight: bold; }
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
         .event-card { border-left: 4px solid #e74c3c; background: #f8f9fa; padding: 1rem; margin-bottom: 1.5rem; border-radius: 0 4px 4px 0; }
+       /* Bouton Hamburger (caché par défaut sur grand écran) */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #check-menu {
+            display: none;
+        }
+
+        /* Style adaptatif pour mobile (écrans de 768px et moins) */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .menu-toggle {
+                display: block; /* Affiche l'icône hamburger ☰ */
+            }
+
+            nav {
+                display: none; /* Cache le menu horizontal classique */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1a252f;
+                flex-direction: column;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+            }
+
+            nav a {
+                display: block;
+                padding: 0.9rem 1.5rem;
+                margin-left: 0;
+                border-top: 1px solid #2c3e50;
+            }
+
+            /* Quand l'icône est cliquée (case cochée), affiche le menu */
+            #check-menu:checked ~ nav {
+                display: flex;
+            }
+        }
+        
         footer { background: #1a252f; color: white; text-align: center; padding: 1rem; margin-top: 3rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Orgue de Saint-Mathias</h1>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="orgue.html">L'Orgue & Jeux</a>
-            <a href="galerie.html">Galerie Photos</a>
-            <a href="evenements.html">Concerts & Événements</a>
-        </nav>
-    </header>
+    <h1>Orgue de Saint-Mathias</h1>
+    <input type="checkbox" id="check-menu">
+    <label for="check-menu" class="menu-toggle">&#9776;</label>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="orgue.html">L'Orgue & Jeux</a>
+        <a href="galerie.html">Galerie Photos</a>
+        <a href="evenements.html">Concerts & Événements</a>
+    </nav>
+</header>
 
     <div class="container">
         <h2>Calendrier des Concerts & Événements</h2>
