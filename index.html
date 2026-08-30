@@ -22,19 +22,51 @@
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
         footer { background: #1a252f; color: white; text-align: center; padding: 1rem; margin-top: 3rem; }
         .btn { display: inline-block; background: #e74c3c; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 4px; margin-top: 1rem; font-weight: bold; }
+   /* Style adaptatif pour mobile */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; /* Affiche l'icône hamburger */
+            }
+
+            nav {
+                display: none; /* Cache le menu principal */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1a252f;
+                flex-direction: column;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            }
+
+            nav a {
+                display: block;
+                padding: 0.8rem 1.5rem;
+                margin-left: 0;
+                border-top: 1px solid #2c3e50;
+            }
+
+            /* Quand la case est cochée (menu cliqué), on affiche la navigation */
+            #check-menu:checked ~ nav {
+                display: flex;
+            }
+        }
+    
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Orgue de Saint-Mathias</h1>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="orgue.html">L'Orgue & Jeux</a>
-            <a href="galerie.html">Galerie Photos</a>
-            <a href="evenements.html">Concerts & Événements</a>
-        </nav>
-    </header>
+<header>
+    <h1>Orgue de Saint-Mathias</h1>
+    <input type="checkbox" id="check-menu">
+    <label for="check-menu" class="menu-toggle">&#9776;</label>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="orgue.html">L'Orgue & Jeux</a>
+        <a href="galerie.html">Galerie Photos</a>
+        <a href="evenements.html">Concerts & Événements</a>
+    </nav>
+</header>
 
     <div class="hero">
         <h2>Le Grand Orgue Mécanique de 20 Jeux</h2>
