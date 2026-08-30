@@ -7,7 +7,7 @@
     <style>
         body { font-family: system-ui, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; }
         
-        /* En-tête et Navigation */
+        /* 1. En-tête fixé en haut de l'écran */
         header { 
             background: #1a252f; 
             color: white; 
@@ -15,7 +15,20 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            position: relative;
+            position: fixed; /* Maintient l'en-tête en haut lors du défilement */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Garde le menu au-dessus du reste du contenu */
+        }
+
+        /* Décale le contenu de la page vers le bas pour ne pas qu'il soit caché sous l'en-tête fixe */
+        body { 
+            font-family: system-ui, sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding-top: 70px; /* Ajustement selon la hauteur de l'en-tête */
+            color: #333; 
         }
 
         header h1 {
@@ -30,7 +43,7 @@
             font-weight: bold; 
         }
 
-        /* Bouton Hamburger (caché par défaut sur grand écran) */
+        /* Bouton Hamburger */
         .menu-toggle {
             display: none;
             font-size: 1.8rem;
@@ -38,22 +51,27 @@
             border: none;
             color: white;
             cursor: pointer;
+            user-select: none;
         }
 
         #check-menu {
             display: none;
         }
 
-        /* Style adaptatif pour mobile */
+        /* 2. Style adaptatif pour mobile */
         @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
             .menu-toggle {
-                display: block; /* Affiche l'icône hamburger */
+                display: block; /* Affiche le bouton ☰ sur mobile */
             }
 
             nav {
-                display: none; /* Cache le menu principal */
+                display: none;
                 position: absolute;
-                top: 100%;
+                top: 100%; /* S'affiche immédiatement sous l'en-tête */
                 left: 0;
                 width: 100%;
                 background: #1a252f;
@@ -63,12 +81,12 @@
 
             nav a {
                 display: block;
-                padding: 0.8rem 1.5rem;
+                padding: 0.9rem 1.5rem;
                 margin-left: 0;
                 border-top: 1px solid #2c3e50;
             }
 
-            /* Quand la case est cochée (menu cliqué), on affiche la navigation */
+            /* Affichage du menu déroulant quand le bouton est cliqué */
             #check-menu:checked ~ nav {
                 display: flex;
             }
