@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Photos - Orgue de Saint-Mathias</title>
+    <style>
+        body { font-family: system-ui, sans-serif; line-height: 1.6; margin: 0; color: #333; }
+        header { background: #1a252f; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: white; margin-left: 1rem; text-decoration: none; font-weight: bold; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        
+        /* Style de la grille de photos */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .gallery-item {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-item .caption {
+            padding: 0.8rem;
+            font-size: 0.95rem;
+            color: #555;
+            text-align: center;
+        }
+        
+        footer { background: #1a252f; color: white; text-align: center; padding: 1rem; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Orgue de Saint-Mathias</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="orgue.html">L'Orgue & Jeux</a>
+            <a href="galerie.html">Galerie Photos</a>
+            <a href="evenements.html">Concerts & Événements</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Galerie Photos</h2>
+        <p>Découvrez l'instrument en images : son buffet, sa console à traction mécanique et les détails de sa tuyauterie.</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/facade-orgue.jpg" alt="Façade de l'orgue de Saint-Mathias">
+                <div class="caption">Vue générale de la façade et des tuyaux en montre.</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/console.jpg" alt="Console de l'orgue">
+                <div class="caption">La console avec les tirants de jeux et le meuble mécanique.</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/tuyaux.jpg" alt="Tuyauterie intérieure">
+                <div class="caption">Aperçu de la tuyauterie et des sommiers.</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/eglise.jpg" alt="Vue depuis la nef">
+                <div class="caption">L'orgue installé dans la tribune de l'église.</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Grand Orgue de Saint-Mathias-sur-Richelieu.</p>
+    </footer>
+
+</body>
+</html>
