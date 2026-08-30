@@ -6,11 +6,47 @@
     <title>Concerts & Événements - Orgue de Saint-Mathias</title>
     <style>
         body { font-family: system-ui, sans-serif; line-height: 1.6; margin: 0; color: #333; }
-        header { background: #1a252f; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+       
         nav a { color: white; margin-left: 1rem; text-decoration: none; font-weight: bold; }
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
         .event-card { border-left: 4px solid #e74c3c; background: #f8f9fa; padding: 1rem; margin-bottom: 1.5rem; border-radius: 0 4px 4px 0; }
-       /* Bouton Hamburger (caché par défaut sur grand écran) */
+      /* 1. En-tête fixé en haut de l'écran */
+        header { 
+            background: #1a252f; 
+            color: white; 
+            padding: 1rem 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: fixed; /* Maintient l'en-tête en haut lors du défilement */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Garde le menu au-dessus du reste du contenu */
+        }
+
+        /* Décale le contenu de la page vers le bas pour ne pas qu'il soit caché sous l'en-tête fixe */
+        body { 
+            font-family: system-ui, sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding-top: 70px; /* Ajustement selon la hauteur de l'en-tête */
+            color: #333; 
+        }
+
+        header h1 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        nav a { 
+            color: white; 
+            margin-left: 1rem; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+
+        /* Bouton Hamburger */
         .menu-toggle {
             display: none;
             font-size: 1.8rem;
@@ -25,26 +61,25 @@
             display: none;
         }
 
-        /* Style adaptatif pour mobile (écrans de 768px et moins) */
+        /* 2. Style adaptatif pour mobile */
         @media (max-width: 768px) {
             header {
                 padding: 1rem;
             }
 
             .menu-toggle {
-                display: block; /* Affiche l'icône hamburger ☰ */
+                display: block; /* Affiche le bouton ☰ sur mobile */
             }
 
             nav {
-                display: none; /* Cache le menu horizontal classique */
+                display: none;
                 position: absolute;
-                top: 100%;
+                top: 100%; /* S'affiche immédiatement sous l'en-tête */
                 left: 0;
                 width: 100%;
                 background: #1a252f;
                 flex-direction: column;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.2);
             }
 
             nav a {
@@ -54,7 +89,7 @@
                 border-top: 1px solid #2c3e50;
             }
 
-            /* Quand l'icône est cliquée (case cochée), affiche le menu */
+            /* Affichage du menu déroulant quand le bouton est cliqué */
             #check-menu:checked ~ nav {
                 display: flex;
             }
